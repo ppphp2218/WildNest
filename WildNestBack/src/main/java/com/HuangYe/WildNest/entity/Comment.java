@@ -45,12 +45,12 @@ public class Comment extends BaseEntity {
     /**
      * 是否置顶：1-是，0-否
      */
-    private Integer isPinned;
+    private Boolean isPinned;
     
     /**
      * 是否敏感：1-是，0-否
      */
-    private Integer isSensitive;
+    private Boolean isSensitive;
     
     /**
      * 用户IP地址

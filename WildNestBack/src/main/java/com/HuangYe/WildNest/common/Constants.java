@@ -17,15 +17,7 @@ public class Constants {
         public static final int INTERNAL_SERVER_ERROR = 500;
     }
     
-    /**
-     * JWT相关常量
-     */
-    public static class JWT {
-        public static final String TOKEN_HEADER = "Authorization";
-        public static final String TOKEN_PREFIX = "Bearer ";
-        public static final String SECRET = "wildnest-jwt-secret-key-for-hmac-sha256-algorithm-minimum-256-bits";
-        public static final long EXPIRATION = 7 * 24 * 60 * 60 * 1000L; // 7天
-    }
+
     
     /**
      * 缓存相关常量

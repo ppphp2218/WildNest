@@ -45,5 +45,5 @@ public class Reply extends BaseEntity {
     /**
      * 状态：1-正常，0-删除
      */
-    private Integer status;
+    private Boolean status;
 }

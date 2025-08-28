@@ -27,9 +27,10 @@ public class DatabaseConfig {
      */
     @Bean
     @Primary
-    @ConfigurationProperties("spring.datasource.druid")
+    @ConfigurationProperties("spring.datasource")
     public DataSource druidDataSource() {
-        return new DruidDataSource();
+        DruidDataSource dataSource = new DruidDataSource();
+        return dataSource;
     }
     
     // TODO: Druid监控配置暂时注释，等待Spring Boot 3完全兼容版本

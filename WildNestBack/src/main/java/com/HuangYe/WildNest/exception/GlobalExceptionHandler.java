@@ -4,9 +4,7 @@ import com.HuangYe.WildNest.common.Constants;
 import com.HuangYe.WildNest.common.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.core.AuthenticationException;
+
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -82,32 +80,7 @@ public class GlobalExceptionHandler {
         return Result.error(Constants.ResponseCode.BAD_REQUEST, "参数校验失败: " + errorMsg.toString());
     }
     
-    /**
-     * 处理认证异常
-     */
-    @ExceptionHandler(AuthenticationException.class)
-    public Result<Object> handleAuthenticationException(AuthenticationException e, HttpServletRequest request) {
-        log.error("认证异常: {} - {}", request.getRequestURI(), e.getMessage());
-        return Result.error(Constants.ResponseCode.UNAUTHORIZED, "认证失败: " + e.getMessage());
-    }
-    
-    /**
-     * 处理凭证错误异常
-     */
-    @ExceptionHandler(BadCredentialsException.class)
-    public Result<Object> handleBadCredentialsException(BadCredentialsException e, HttpServletRequest request) {
-        log.error("凭证错误异常: {} - {}", request.getRequestURI(), e.getMessage());
-        return Result.error(Constants.ResponseCode.UNAUTHORIZED, "用户名或密码错误");
-    }
-    
-    /**
-     * 处理访问拒绝异常
-     */
-    @ExceptionHandler(AccessDeniedException.class)
-    public Result<Object> handleAccessDeniedException(AccessDeniedException e, HttpServletRequest request) {
-        log.error("访问拒绝异常: {} - {}", request.getRequestURI(), e.getMessage());
-        return Result.error(Constants.ResponseCode.FORBIDDEN, "访问被拒绝: " + e.getMessage());
-    }
+
     
     /**
      * 处理文件上传大小超限异常

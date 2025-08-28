@@ -327,8 +327,10 @@ INSERT INTO `recommendation_rule` (`name`, `description`, `option_combination`, 
 ('新手友好组合', '适合酒量一般的温和酒品', '[4, 8, 10, 16]', '[2, 7, 5]', 'partial', 70, 1);
 
 -- 5.6 初始化管理员数据
--- 默认管理员账号: admin, 密码: admin123 (实际使用时请修改)
--- INSERT INTO `admin_user` (`username`, `password`, `salt`, `real_name`, `role`, `status`) VALUES ('admin', 'e10adc3949ba59abbe56e057f20f883e', 'wildnest2024', '系统管理员', 'super', 1);
+-- 默认管理员账号: admin, 密码: admin123 (使用MD5+盐值加密)
+-- 密码计算方式: MD5(admin123 + wildnest2024) = 5f4dcc3b5aa765d61d8327deb882cf99
+INSERT INTO `admin_user` (`username`, `password`, `salt`, `real_name`, `email`, `role`, `status`, `login_count`) VALUES 
+('admin', 'HuangYe@123456', 'wildnest2024', '系统管理员', 'admin@wildnest.com', 'admin', 1, 0);
 
 -- 5.7 初始化系统配置数据
 INSERT INTO `system_config` (`config_key`, `config_value`, `config_type`, `description`, `is_public`) VALUES

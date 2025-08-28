@@ -72,12 +72,12 @@ public class Drink extends BaseEntity {
     /**
      * 是否推荐：1-是，0-否
      */
-    private Integer isFeatured;
+    private Boolean isFeatured;
     
     /**
      * 是否可售：1-是，0-否
      */
-    private Integer isAvailable;
+    private Boolean isAvailable;
     
     /**
      * 浏览次数
