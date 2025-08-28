@@ -1,21 +1,15 @@
-# 服务器配置
-server:
-  port: 8080
-  servlet:
-    context-path: /api
-
-# Spring配置
+# 开发环境配置 - 使用远程MySQL数据库
 spring:
   application:
     name: WildNest
   
-  # 数据源配置
+  # 使用开发环境MySQL数据库
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/wildnest_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
-    username: root
-    password: 123456
+    url: jdbc:mysql://pppnas.top:9009/wildnest_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: wildnest_app
+    password: fOxedteXJ8EIAU7OFPAV
     druid:
       initial-size: 5
       min-idle: 5
@@ -31,20 +25,6 @@ spring:
       max-pool-prepared-statement-per-connection-size: 20
       filters: stat,wall
   
-  # Redis配置（可选，暂时注释掉避免启动问题）
-  # redis:
-  #   host: localhost
-  #   port: 6379
-  #   password: 
-  #   database: 0
-  #   timeout: 10000
-  #   lettuce:
-  #     pool:
-  #       max-active: 8
-  #       max-wait: -1
-  #       max-idle: 8
-  #       min-idle: 0
-
   # 文件上传配置
   servlet:
     multipart:
@@ -66,13 +46,13 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
 
-# 阿里云OSS配置
+# 阿里云OSS配置（开发环境可以使用测试配置）
 aliyun:
   oss:
     endpoint: oss-cn-hangzhou.aliyuncs.com
-    access-key-id: your-access-key-id
-    access-key-secret: your-access-key-secret
-    bucket-name: your-bucket-name
+    access-key-id: test-access-key-id
+    access-key-secret: test-access-key-secret
+    bucket-name: test-bucket-name
 
 # SpringDoc OpenAPI配置
 springdoc:
@@ -90,4 +70,10 @@ logging:
     root: info
     com.HuangYe.WildNest: debug
   file:
-    name: logs/wildnest.log
+    name: logs/wildnest-dev.log
+
+# 服务器配置
+server:
+  port: 8080
+  servlet:
+    context-path: /api

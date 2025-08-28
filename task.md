@@ -62,9 +62,10 @@
 - [ ] 实现AOP统一日志切面
 
 ### 2. 数据库设计与实现
-- [ ] 设计并创建酒单相关表（drink_category, drink）
-- [ ] 设计并创建留言板相关表（comment, reply, oss_image）
-- [ ] 设计并创建推荐服务相关表（question, option, recommendation）
+- [x] 设计并创建酒单相关表（drink_category, drink）
+- [x] 设计并创建留言板相关表（comment, reply, oss_image）
+- [x] 设计并创建推荐服务相关表（question, option, recommendation）
+- [x] **变更记录**：移除数据库触发器，改为应用层逻辑实现统计字段维护
 
 ### 3. 酒单服务开发
 - [ ] 实现酒品分类接口
@@ -81,6 +82,13 @@
 - [ ] 实现删除/编辑功能接口
 - [ ] 开发图片上传接口（OSS）
 - [ ] 实现敏感词过滤功能
+- [ ] **应用层统计逻辑实现**：
+  - [ ] 回复新增时自动更新comment.reply_count (+1)
+  - [ ] 回复删除时自动更新comment.reply_count (-1)
+  - [ ] 点赞新增时自动更新comment.like_count (+1)
+  - [ ] 点赞删除时自动更新comment.like_count (-1)
+  - [ ] 实现定期校验任务，使用COUNT查询校正统计数据
+  - [ ] 添加事务保证统计数据一致性
 
 ### 5. 推荐服务开发
 - [ ] 实现问题库接口
